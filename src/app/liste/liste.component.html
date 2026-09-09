@@ -1,14 +1,16 @@
 <ol class="list-group">
-  <app-item
-    (eventToListe)="sendCandidateToCv($event)"
-    [unCandidat]="tousCandidats[0]"
-  ></app-item>
-  <app-item
+  @for (cand of tousCandidats; track $index) {
+    <app-item
+      (eventToListe)="sendCandidateToCv($event)"
+      [unCandidat]="cand"
+    ></app-item>
+  }
+  <!-- <app-item
     (eventToListe)="sendCandidateToCv($event)"
     [unCandidat]="tousCandidats[1]"
   ></app-item>
   <app-item
     (eventToListe)="sendCandidateToCv($event)"
     [unCandidat]="tousCandidats[2]"
-  ></app-item>
+  ></app-item> -->
 </ol>
