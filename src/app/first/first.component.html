@@ -1,0 +1,21 @@
+<h3>Bienvenue à {{ entreprise }} parmi nous</h3>
+
+<hr />
+
+<div [style.color]="txtColor">Formation en Angular</div>
+
+<hr />
+
+<button (click)="clickHandler()" class="btn btn-primary">Click me</button>
+
+<hr />
+
+<input
+  #inp
+  [value]="entreprise"
+  (input)="updateEntreprise(inp.value)"
+  type="text"
+  class="form-control"
+/>
+
+<input [(ngModel)]="entreprise" type="text" class="form-control" />

@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1080px;
+  padding: 0 1.25rem 4rem;
+}
+
+/* Le composant routé est rendu comme frère de <router-outlet> */
+router-outlet + * {
+  display: block;
+  padding-top: 2rem;
+}

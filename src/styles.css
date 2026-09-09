@@ -1,1 +1,263 @@
 /* You can add global styles to this file, and also import other style files */
+/* ==========================================================================
+   Thème global — PLB Dec 25
+   Une couche de tokens + surcharges Bootstrap 5.3.
+   IMPORTANT : dans angular.json, ce fichier doit être chargé APRÈS bootstrap.
+   ========================================================================== */
+
+:root {
+  /* --- Palette : neutres froids + un seul accent (bleu pétrole) --- */
+  --c-canvas: #f4f6f8;
+  --c-surface: #ffffff;
+  --c-ink: #16202c;
+  --c-muted: #6b7683;
+  --c-line: #e4e8ee;
+  --c-brand: #1f4e6d;
+  --c-brand-dark: #17394f;
+  --c-brand-soft: #eef3f7;
+
+  /* --- Rythme --- */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --shadow-1: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-2: 0 8px 24px rgba(16, 24, 40, 0.08);
+
+  /* --- Tokens Bootstrap --- */
+  --bs-font-sans-serif:
+    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    sans-serif;
+  --bs-body-bg: var(--c-canvas);
+  --bs-body-color: var(--c-ink);
+  --bs-border-color: var(--c-line);
+  --bs-border-radius: var(--r-sm);
+  --bs-border-radius-sm: 6px;
+  --bs-border-radius-lg: var(--r-md);
+  --bs-link-color: var(--c-brand);
+  --bs-link-hover-color: var(--c-brand-dark);
+  --bs-link-underline-opacity: 0;
+  --bs-primary: var(--c-brand);
+  --bs-primary-rgb: 31, 78, 109;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.005em;
+}
+
+/* --------------------------------------------------------------- Titres  */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--c-ink);
+}
+h3 {
+  font-size: 1.4rem;
+}
+h4 {
+  font-size: 1.15rem;
+}
+h5 {
+  font-size: 1rem;
+  color: var(--c-muted);
+  font-weight: 500;
+}
+hr {
+  border-color: var(--c-line);
+  opacity: 1;
+  margin: 1.75rem 0;
+}
+
+/* -------------------------------------------------------------- Boutons  */
+.btn {
+  --bs-btn-padding-y: 0.5rem;
+  --bs-btn-padding-x: 1rem;
+  --bs-btn-font-size: 0.9rem;
+  --bs-btn-font-weight: 500;
+  --bs-btn-border-radius: var(--r-sm);
+  --bs-btn-focus-shadow-rgb: 31, 78, 109;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn + .btn {
+  margin-left: 0.5rem;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--c-brand);
+  --bs-btn-border-color: var(--c-brand);
+  --bs-btn-hover-bg: var(--c-brand-dark);
+  --bs-btn-hover-border-color: var(--c-brand-dark);
+  --bs-btn-active-bg: var(--c-brand-dark);
+  --bs-btn-active-border-color: var(--c-brand-dark);
+  --bs-btn-disabled-bg: #9fb3c1;
+  --bs-btn-disabled-border-color: #9fb3c1;
+}
+.btn-success {
+  --bs-btn-bg: #2f7a5a;
+  --bs-btn-border-color: #2f7a5a;
+  --bs-btn-hover-bg: #245e46;
+  --bs-btn-hover-border-color: #245e46;
+  --bs-btn-active-bg: #245e46;
+  --bs-btn-active-border-color: #245e46;
+  --bs-btn-disabled-bg: #a8c4b8;
+  --bs-btn-disabled-border-color: #a8c4b8;
+}
+.btn-danger {
+  --bs-btn-bg: #b0453c;
+  --bs-btn-border-color: #b0453c;
+  --bs-btn-hover-bg: #8f362f;
+  --bs-btn-hover-border-color: #8f362f;
+  --bs-btn-active-bg: #8f362f;
+  --bs-btn-active-border-color: #8f362f;
+  --bs-btn-disabled-bg: #d3aca8;
+  --bs-btn-disabled-border-color: #d3aca8;
+}
+.btn-warning {
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: #b07d2a;
+  --bs-btn-border-color: #b07d2a;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #8f6420;
+  --bs-btn-hover-border-color: #8f6420;
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: #8f6420;
+  --bs-btn-disabled-color: #ffffff;
+  --bs-btn-disabled-bg: #d6bf9b;
+  --bs-btn-disabled-border-color: #d6bf9b;
+}
+.btn-info {
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: #40718c;
+  --bs-btn-border-color: #40718c;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #325a70;
+  --bs-btn-hover-border-color: #325a70;
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: #325a70;
+  --bs-btn-disabled-color: #ffffff;
+  --bs-btn-disabled-bg: #a9bfcb;
+  --bs-btn-disabled-border-color: #a9bfcb;
+}
+.btn-dark {
+  --bs-btn-bg: var(--c-ink);
+  --bs-btn-border-color: var(--c-ink);
+  --bs-btn-hover-bg: #0c1620;
+  --bs-btn-hover-border-color: #0c1620;
+  --bs-btn-active-bg: #0c1620;
+}
+[class*="btn-outline-"] {
+  --bs-btn-color: var(--c-brand);
+  --bs-btn-border-color: #c6d2db;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: var(--c-brand);
+  --bs-btn-hover-border-color: var(--c-brand);
+  --bs-btn-active-bg: var(--c-brand-dark);
+  --bs-btn-active-border-color: var(--c-brand-dark);
+}
+
+/* ------------------------------------------------------------ Formulaires */
+form label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin: 1rem 0 0.35rem;
+}
+.form-control,
+.form-select {
+  background-color: var(--c-surface);
+  border-color: #d7dee6;
+  border-radius: var(--r-sm);
+  padding: 0.55rem 0.8rem;
+  font-size: 0.95rem;
+  box-shadow: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--c-brand);
+  box-shadow: 0 0 0 3px rgba(31, 78, 109, 0.12);
+}
+.form-control::placeholder {
+  color: #a4aeb9;
+}
+
+/* ---------------------------------------------------------------- Alertes */
+.alert {
+  border-radius: var(--r-sm);
+  border-width: 0 0 0 3px;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.9rem;
+  margin-top: 0.6rem;
+}
+.alert-danger {
+  --bs-alert-color: #8f362f;
+  --bs-alert-bg: #fbf0ef;
+  --bs-alert-border-color: #b0453c;
+}
+.alert-info {
+  --bs-alert-color: #325a70;
+  --bs-alert-bg: var(--c-brand-soft);
+  --bs-alert-border-color: #40718c;
+}
+
+/* ------------------------------------------------------- Listes & tableaux */
+.list-group {
+  --bs-list-group-border-color: var(--c-line);
+  --bs-list-group-border-radius: var(--r-md);
+  --bs-list-group-item-padding-y: 0.75rem;
+  --bs-list-group-item-padding-x: 0.9rem;
+}
+.table {
+  --bs-table-border-color: var(--c-line);
+  --bs-table-striped-bg: #fafbfc;
+  --bs-table-hover-bg: var(--c-brand-soft);
+  font-size: 0.95rem;
+}
+.badge {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.4em 0.7em;
+  border-radius: 999px;
+}
+.badge.bg-secondary {
+  background-color: #e8edf2 !important;
+  color: var(--c-muted);
+}
+
+/* --------------------------------------------------------- Blocs de debug */
+pre {
+  background: #f8fafb;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-sm);
+  padding: 0.85rem;
+  font-size: 0.8rem;
+  color: var(--c-muted);
+  overflow-x: auto;
+}
+
+/* ------------------------------------------------------------ Focus a11y */
+:focus-visible {
+  outline: 2px solid var(--c-brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
