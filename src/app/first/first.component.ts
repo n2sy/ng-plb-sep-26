@@ -19,4 +19,7 @@ export class FirstComponent {
   updateEntreprise(inpValue: string) {
     this.entreprise = inpValue;
   }
+  extraireMsg(msg) {
+    this.entreprise = msg;
+  }
 }

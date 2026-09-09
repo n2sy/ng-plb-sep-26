@@ -22,4 +22,7 @@
 
 <hr />
 
-<app-second [bgColor]="'pink'"></app-second>
+<app-second
+  [bgColor]="'pink'"
+  (eventToParent)="extraireMsg($event)"
+></app-second>
