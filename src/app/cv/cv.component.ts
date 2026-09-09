@@ -16,4 +16,9 @@ export class CvComponent {
     new Candidat(2, 'homer', 'simpson', 55, 'Chef de projet', 'homer.png'),
     new Candidat(1, 'lisa', 'simpson', 19, 'Designer', 'lisa.png'),
   ];
+  selCandidat: Candidat;
+
+  recupererCandidat(cand) {
+    this.selCandidat = cand;
+  }
 }

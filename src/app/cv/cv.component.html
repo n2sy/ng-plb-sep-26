@@ -1,8 +1,11 @@
 <div class="row">
   <div class="col-6">
-    <app-liste [tousCandidats]="allCandidates"></app-liste>
+    <app-liste
+      (eventToCv)="recupererCandidat($event)"
+      [tousCandidats]="allCandidates"
+    ></app-liste>
   </div>
   <div class="col-6">
-    <app-details></app-details>
+    <app-details [selectedCandidat]="selCandidat"></app-details>
   </div>
 </div>
