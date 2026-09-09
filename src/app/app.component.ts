@@ -2,11 +2,17 @@ import { Component } from '@angular/core';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { CvComponent } from './cv/cv.component';
+import { HomeAccountsComponent } from './accounts/home-accounts/home-accounts.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FirstComponent, SecondComponent, CvComponent],
+  imports: [
+    FirstComponent,
+    SecondComponent,
+    CvComponent,
+    HomeAccountsComponent,
+  ],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
