@@ -4,6 +4,7 @@ import { SecondComponent } from './second/second.component';
 import { CvComponent } from './cv/cv.component';
 import { HomeAccountsComponent } from './accounts/home-accounts/home-accounts.component';
 import { DirectComponent } from './direct/direct.component';
+import { ManageServersComponent } from './manage-servers/manage-servers.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { DirectComponent } from './direct/direct.component';
     CvComponent,
     HomeAccountsComponent,
     DirectComponent,
+    ManageServersComponent,
   ],
   templateUrl: './app.component.html',
 })

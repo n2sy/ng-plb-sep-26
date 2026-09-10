@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Candidat } from '../models/candidat.model';
+import { HighlightDirective } from '../highlight.directive';
 
 @Component({
   selector: 'app-item',
   standalone: true,
-  imports: [],
+  imports: [HighlightDirective],
   templateUrl: './item.component.html',
   styleUrl: './item.component.css',
 })

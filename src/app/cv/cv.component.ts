@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { ListeComponent } from '../liste/liste.component';
 import { DetailsComponent } from '../details/details.component';
 import { Candidat } from '../models/candidat.model';
+import { HighlightDirective } from '../highlight.directive';
 
 @Component({
   selector: 'app-cv',
   standalone: true,
-  imports: [ListeComponent, DetailsComponent],
+  imports: [ListeComponent, DetailsComponent, HighlightDirective],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.css',
 })
