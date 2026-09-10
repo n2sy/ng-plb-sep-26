@@ -8,6 +8,8 @@ import {
 } from '@angular/common';
 import { Component } from '@angular/core';
 import { ShortPipe } from '../pipes/short.pipe';
+import { FilterPipe } from '../pipes/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-manage-servers',
@@ -19,11 +21,14 @@ import { ShortPipe } from '../pipes/short.pipe';
     CurrencyPipe,
     DatePipe,
     ShortPipe,
+    FilterPipe,
+    FormsModule,
   ],
   templateUrl: './manage-servers.component.html',
   styleUrl: './manage-servers.component.css',
 })
 export class ManageServersComponent {
+  selectedStatut = '';
   allServers = [
     {
       nom: 'Production Server',
