@@ -11,7 +11,7 @@
             width="150px"
             height="150px"
             class="rounded-circle align-content-center"
-            src=""
+            [src]="selCandidate.avatar | noAvatar"
             alt=""
           />
         </div>
@@ -24,19 +24,21 @@
             <table class="table table-hover table-striped">
               <tbody>
                 <tr>
-                  <td><strong>Prénom</strong> prenom</td>
+                  <td><strong>Prénom</strong> {{ selCandidate.prenom }}</td>
                 </tr>
                 <tr>
-                  <td><strong>Nom</strong> nom</td>
+                  <td><strong>Nom</strong> {{ selCandidate.nom }}</td>
                 </tr>
                 <tr>
-                  <td><strong>Age</strong>age</td>
+                  <td><strong>Age</strong> {{ selCandidate.age }}</td>
                 </tr>
                 <tr>
-                  <td><strong>Profession</strong> profession</td>
+                  <td>
+                    <strong>Profession</strong> {{ selCandidate.profession }}
+                  </td>
                 </tr>
                 <tr>
-                  <td><strong>Image</strong> path</td>
+                  <td><strong>Image</strong> {{ selCandidate.avatar }}</td>
                 </tr>
               </tbody>
             </table>
