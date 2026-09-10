@@ -1,0 +1,49 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin: 0 -1.25rem;
+  padding: 0 1.25rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.nav-tabs {
+  --bs-nav-tabs-border-width: 0;
+  gap: 0.15rem;
+  flex-wrap: wrap;
+  padding: 0.65rem 0;
+  margin: 0;
+}
+
+.nav-tabs .nav-link {
+  color: var(--c-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  border: 0;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  background: var(--c-brand-soft);
+  color: var(--c-ink);
+  border: 0;
+}
+
+.nav-tabs .nav-link.active {
+  background: var(--c-brand);
+  color: #ffffff;
+  border: 0;
+}
+
+/* "Logout" est le dernier onglet : on le décale à droite */
+.nav-item:last-child {
+  margin-left: auto;
+}

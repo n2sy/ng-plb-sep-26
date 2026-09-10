@@ -9,6 +9,7 @@ import { RecruesComponent } from './recrues/recrues.component';
 import { GestionRecruesService } from './services/gestion-recrues.service';
 import { GestionCandidatsService } from './services/gestion-candidats.service';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ import { RouterOutlet } from '@angular/router';
     ManageServersComponent,
     RecruesComponent,
     RouterOutlet,
+    NavbarComponent,
   ],
   templateUrl: './app.component.html',
   providers: [GestionRecruesService, GestionCandidatsService],
