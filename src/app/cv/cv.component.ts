@@ -4,11 +4,18 @@ import { DetailsComponent } from '../details/details.component';
 import { Candidat } from '../models/candidat.model';
 import { HighlightDirective } from '../highlight.directive';
 import { GestionCandidatsService } from '../services/gestion-candidats.service';
+import { RecruesComponent } from '../recrues/recrues.component';
+import { GestionRecruesService } from '../services/gestion-recrues.service';
 
 @Component({
   selector: 'app-cv',
   standalone: true,
-  imports: [ListeComponent, DetailsComponent, HighlightDirective],
+  imports: [
+    ListeComponent,
+    DetailsComponent,
+    HighlightDirective,
+    RecruesComponent,
+  ],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.css',
 })

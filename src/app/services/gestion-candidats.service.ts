@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Candidat } from '../models/candidat.model';
+import { TestService } from './test.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class GestionCandidatsService {
   private allCandidates: Candidat[] = [
     new Candidat(1, 'bart', 'simpson', 23, 'Ingénieur', 'bart.jpeg'),
@@ -13,6 +12,7 @@ export class GestionCandidatsService {
   ];
 
   getAllCandidates() {
+    this.testSer.addition(5, 3);
     return this.allCandidates;
   }
 
@@ -25,5 +25,5 @@ export class GestionCandidatsService {
     console.log('Je suis un service');
   }
 
-  constructor() {}
+  constructor(private testSer: TestService) {}
 }

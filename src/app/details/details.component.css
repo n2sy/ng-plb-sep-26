@@ -1,1 +1,32 @@
 @import url("../../../public/rotating-card.css");
+@import url("../../../public/rotating-card.css");
+
+/* --- Affinage sobre de la carte pivotante --- */
+.front,
+.back {
+  border: 1px solid var(--c-line);
+  box-shadow: var(--shadow-1);
+}
+.card .cover {
+  background: var(--c-brand);
+}
+.card .cover img {
+  opacity: 0.35;
+}
+.card .user img {
+  border-width: 3px;
+  object-fit: cover;
+}
+.card .name {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.card .profession,
+.card .motto,
+.card .footer {
+  color: var(--c-muted);
+}
+.card .stats h4 {
+  color: var(--c-brand);
+  font-weight: 600;
+}

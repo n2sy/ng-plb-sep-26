@@ -1,0 +1,15 @@
+<h3>TopSolid - Formation en Angular</h3>
+
+<hr />
+
+<h5>Navigation côté Template</h5>
+
+<button routerLink="cv" class="btn btn-primary">Go To CV</button>
+<button [routerLink]="['cv', idCandidat]" class="btn btn-warning">
+  Go To Infos
+</button>
+<hr />
+<h5>Navigation côté Typescript</h5>
+
+<button (click)="goToCv()" class="btn btn-danger">Go To CV</button>
+<button (click)="goToInfos()" class="btn btn-dark">Go To Infos</button>

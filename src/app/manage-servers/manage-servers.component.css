@@ -1,0 +1,49 @@
+:host {
+  display: block;
+  max-width: 760px;
+}
+
+.form-control {
+  max-width: 320px;
+}
+
+.list-group {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  border: 0;
+  border-bottom: 1px solid var(--c-line);
+  font-size: 0.9rem;
+  color: var(--c-ink);
+}
+
+.list-group-item:last-child {
+  border-bottom: 0;
+}
+
+.badge {
+  margin-left: auto;
+}
+
+/* Statuts : teintes atténuées plutôt que les couleurs Bootstrap brutes */
+.list-group-item-success {
+  --bs-list-group-bg: #f1f7f4;
+  --bs-list-group-color: #245e46;
+}
+.list-group-item-danger {
+  --bs-list-group-bg: #fbf2f1;
+  --bs-list-group-color: #8f362f;
+}
+.list-group-item-warning {
+  --bs-list-group-bg: #fbf6ed;
+  --bs-list-group-color: #8f6420;
+}

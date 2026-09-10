@@ -1,1 +1,8 @@
-<p>recrues works!</p>
+<div>
+  <h4>Liste des recrues</h4>
+  <ol class="list-group-item">
+    @for (recrue of recrueService.allRecrues; track $index) {
+      <app-item [unCandidat]="recrue"></app-item>
+    }
+  </ol>
+</div>
