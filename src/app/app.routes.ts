@@ -4,11 +4,28 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { HomeAccountsComponent } from './accounts/home-accounts/home-accounts.component';
 import { ManageServersComponent } from './manage-servers/manage-servers.component';
 import { InfosComponent } from './infos/infos.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AddComponent } from './add/add.component';
+import { EditComponent } from './edit/edit.component';
 
 export const myRoutes: Routes = [
   { path: '', component: AccueilComponent },
-  { path: 'cv', component: CvComponent },
-  { path: 'cv/:id', component: InfosComponent },
+  {
+    path: 'cv',
+    children: [
+      { path: '', component: CvComponent },
+      { path: 'add', component: AddComponent },
+      {
+        path: ':id',
+        children: [
+          { path: '', component: InfosComponent },
+          { path: 'edit', component: EditComponent },
+        ],
+      },
+    ],
+  },
   { path: 'accounts', component: HomeAccountsComponent },
   { path: 'servers', component: ManageServersComponent },
+  { path: '404', component: NotFoundComponent }, // Wild route
+  { path: '**', redirectTo: '404' }, // Wild route
 ];

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, ParamMap, RouterLink } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router, RouterLink } from '@angular/router';
 import { GestionCandidatsService } from '../services/gestion-candidats.service';
 import { Candidat } from '../models/candidat.model';
 import { NoAvatarPipe } from '../pipes/no-avatar.pipe';
@@ -15,6 +15,7 @@ export class InfosComponent {
   selCandidate: Candidat;
   private activatedRoute = inject(ActivatedRoute);
   private candSer = inject(GestionCandidatsService);
+  private router = inject(Router);
 
   ngOnInit() {
     // console.log(this.activatedRoute.snapshot.params);
@@ -25,6 +26,8 @@ export class InfosComponent {
     this.activatedRoute.paramMap.subscribe({
       next: (values: ParamMap) => {
         this.selCandidate = this.candSer.getCandidateById(values.get('id'));
+
+        if (!this.selCandidate) this.router.navigateByUrl('/404');
       },
       error: (err) => {},
     });

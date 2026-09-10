@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+p {
+  font-size: 1.15rem;
+  color: var(--c-muted);
+  margin-bottom: 1.75rem;
+}
+
+img {
+  width: min(420px, 80%);
+  border-radius: var(--r-md);
+}
