@@ -15,7 +15,8 @@ export class CvComponent {
   allCandidates: Candidat[] = [
     new Candidat(1, 'bart', 'simpson', 23, 'Ingénieur', 'bart.jpeg'),
     new Candidat(2, 'homer', 'simpson', 55, 'Chef de projet', 'homer.png'),
-    new Candidat(1, 'lisa', 'simpson', 19, 'Designer', 'lisa.png'),
+    new Candidat(3, 'lisa', 'simpson', 19, 'Designer', 'lisa.png'),
+    new Candidat(4, 'marge', 'simpson', 33, 'Designer'),
   ];
   selCandidat: Candidat;
 
