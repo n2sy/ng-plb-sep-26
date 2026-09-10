@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ListeComponent } from '../liste/liste.component';
 import { DetailsComponent } from '../details/details.component';
 import { Candidat } from '../models/candidat.model';
 import { HighlightDirective } from '../highlight.directive';
+import { GestionCandidatsService } from '../services/gestion-candidats.service';
 
 @Component({
   selector: 'app-cv',
@@ -12,13 +13,27 @@ import { HighlightDirective } from '../highlight.directive';
   styleUrl: './cv.component.css',
 })
 export class CvComponent {
-  allCandidates: Candidat[] = [
-    new Candidat(1, 'bart', 'simpson', 23, 'Ingénieur', 'bart.jpeg'),
-    new Candidat(2, 'homer', 'simpson', 55, 'Chef de projet', 'homer.png'),
-    new Candidat(3, 'lisa', 'simpson', 19, 'Designer', 'lisa.png'),
-    new Candidat(4, 'marge', 'simpson', 33, 'Designer'),
-  ];
+  allCandidates: Candidat[] = [];
   selCandidat: Candidat;
+
+  //1ere méthode
+  //constructor(private candService: GestionCandidatsService) {}
+
+  //2eme méthode
+  private candService = inject(GestionCandidatsService);
+
+  ngOnInit() {
+    this.candService.showInfos();
+    this.allCandidates = this.candService.getAllCandidates();
+  }
+
+  addNewCandidate() {
+    this.candService.addCandidate();
+  }
+
+  showList() {
+    console.log(this.candService.getAllCandidates());
+  }
 
   recupererCandidat(cand) {
     this.selCandidat = cand;
