@@ -9,11 +9,19 @@ import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 
 export const myRoutes: Routes = [
-  { path: '', component: AccueilComponent },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./accueil/accueil.component').then((c) => c.AccueilComponent),
+  },
   {
     path: 'cv',
     children: [
-      { path: '', component: CvComponent },
+      {
+        path: '',
+        loadComponent: () =>
+          import('./cv/cv.component').then((c) => c.CvComponent),
+      },
       { path: 'add', component: AddComponent },
       {
         path: ':id',
@@ -25,6 +33,11 @@ export const myRoutes: Routes = [
     ],
   },
   { path: 'accounts', component: HomeAccountsComponent },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./login/login.component').then((c) => c.LoginComponent),
+  },
   { path: 'servers', component: ManageServersComponent },
   { path: '404', component: NotFoundComponent }, // Wild route
   { path: '**', redirectTo: '404' }, // Wild route

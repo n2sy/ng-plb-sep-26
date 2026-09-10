@@ -1,0 +1,54 @@
+<form #f="ngForm" (ngSubmit)="submitHandler(f)">
+  <label for="">Login</label>
+  <input ngModel name="login" type="text" class="form-control" />
+
+  <label for="">Mot de passe</label>
+  <input
+    #inpPwd="ngModel"
+    ngModel
+    name="password"
+    required
+    minlength="5"
+    type="text"
+    class="form-control"
+  />
+
+  <label for="">Langage préférée</label>
+  <select [ngModel]="defaultLanguage" name="langage" id="" class="form-control">
+    @for (lang of allLanguages; track $index) {
+      <option [value]="lang">{{ lang }}</option>
+    }
+    ion</select
+  ><br />
+
+  {{ defaultLanguage }}
+
+  <br />
+
+  <textarea
+    name="commentaire"
+    [(ngModel)]="myComment"
+    rows="4"
+    cols="5"
+    class="form-control"
+  ></textarea>
+
+  <br />
+
+  {{ myComment }}
+
+  <br />
+
+  @if (inpPwd.invalid && inpPwd.touched) {
+    <div class="alert alert-danger">
+      Le mot de passe doit être de 5 caractères au minimium
+    </div>
+  }
+
+  <button class="btn btn-primary">Se Connecter</button>
+
+  <pre>
+    
+    {{ f.value | json }}
+  </pre>
+</form>
