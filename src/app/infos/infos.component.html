@@ -11,7 +11,7 @@
             width="150px"
             height="150px"
             class="rounded-circle align-content-center"
-            [src]="selCandidate.avatar | noAvatar"
+            [src]="selCandidate?.avatar | noAvatar"
             alt=""
           />
         </div>
@@ -24,27 +24,29 @@
             <table class="table table-hover table-striped">
               <tbody>
                 <tr>
-                  <td><strong>Prénom</strong> {{ selCandidate.prenom }}</td>
+                  <td><strong>Prénom</strong> {{ selCandidate?.prenom }}</td>
                 </tr>
                 <tr>
-                  <td><strong>Nom</strong> {{ selCandidate.nom }}</td>
+                  <td><strong>Nom</strong> {{ selCandidate?.nom }}</td>
                 </tr>
                 <tr>
-                  <td><strong>Age</strong> {{ selCandidate.age }}</td>
+                  <td><strong>Age</strong> {{ selCandidate?.age }}</td>
                 </tr>
                 <tr>
                   <td>
-                    <strong>Profession</strong> {{ selCandidate.profession }}
+                    <strong>Profession</strong> {{ selCandidate?.profession }}
                   </td>
                 </tr>
                 <tr>
-                  <td><strong>Image</strong> {{ selCandidate.avatar }}</td>
+                  <td><strong>Image</strong> {{ selCandidate?.avatar }}</td>
                 </tr>
               </tbody>
             </table>
             <div class="d-flex justify-content-center gap-3">
-              <button (click)="deleteHandler()" class="btn btn-danger">Delete</button>
-              <button  class="btn btn-primary">Update</button>
+              <button (click)="deleteHandler()" class="btn btn-danger">
+                Delete
+              </button>
+              <button routerLink="edit" class="btn btn-primary">Update</button>
             </div>
           </div>
         </div>

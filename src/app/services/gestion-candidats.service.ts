@@ -22,7 +22,22 @@ export class GestionCandidatsService {
   }
 
   deleteCandidateAPI(idCand) {
-    return this.http.delete(`${this.link}/free/${idCand}`);
+    return this.http.delete(`${this.link}/${idCand}`);
+  }
+
+  addCandidateAPI(newCand) {
+    return this.http.post(`${this.link}/free`, newCand);
+  }
+
+  updateCandidate(uCand) {
+    return this.http.put(`${this.link}/free/${uCand._id}`, uCand);
+  }
+
+  uploadAvatar(formData) {
+    return this.http.post(
+      `https://backendangulartrainingvercel.vercel.app/images/upload/cloud`,
+      formData,
+    );
   }
 
   getAllCandidates() {

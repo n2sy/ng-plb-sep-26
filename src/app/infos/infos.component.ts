@@ -23,19 +23,22 @@ export class InfosComponent {
     // this.idCandidat = this.activatedRoute.snapshot.paramMap.get('id');
 
     //Version 2
-    this.activatedRoute.paramMap.subscribe({
-      next: (values: ParamMap) => {
-        this.candSer.getCandidateByIdAPI(values.get('id')).subscribe({
-          next: (data: Candidat) => {
-            this.selCandidate = data;
-          },
-          error: (err) => {
-            this.router.navigateByUrl('/404');
-          },
-        });
-      },
-      error: (err) => {},
-    });
+
+    setTimeout(() => {
+      this.activatedRoute.paramMap.subscribe({
+        next: (values: ParamMap) => {
+          this.candSer.getCandidateByIdAPI(values.get('id')).subscribe({
+            next: (data: Candidat) => {
+              this.selCandidate = data;
+            },
+            error: (err) => {
+              this.router.navigateByUrl('/404');
+            },
+          });
+        },
+        error: (err) => {},
+      });
+    }, 3000);
   }
 
   deleteHandler() {

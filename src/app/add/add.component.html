@@ -1,1 +1,32 @@
-<p>add works!</p>
+<form #f="ngForm" (ngSubmit)="submitHandler($event, f.value)">
+  <label for="">Prénom</label>
+  <input ngModel required name="prenom" type="text" class="form-control" />
+
+  <label for="">Nom</label>
+  <input ngModel required name="nom" type="text" class="form-control" />
+
+  <label for="">Age</label>
+  <input
+    ngModel
+    min="20"
+    max="55"
+    name="age"
+    type="number"
+    class="form-control"
+  />
+
+  <label for="">Profession</label>
+  <input ngModel name="profession" type="text" class="form-control" />
+
+  <label for="">Avatar</label>
+  <input type="file" class="form-control" />
+
+  <button [disabled]="f.invalid" class="btn btn-primary">
+    Ajouter Candidat
+  </button>
+
+  <pre>
+    
+    {{ f.value | json }}
+  </pre>
+</form>

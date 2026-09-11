@@ -1,1 +1,49 @@
-<p>edit works!</p>
+<form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
+  <label for="">Prénom</label>
+  <input
+    [ngModel]="candidateToEdit.prenom"
+    required
+    name="prenom"
+    type="text"
+    class="form-control"
+  />
+
+  <label for="">Nom</label>
+  <input
+    [ngModel]="candidateToEdit.nom"
+    required
+    name="nom"
+    type="text"
+    class="form-control"
+  />
+
+  <label for="">Age</label>
+  <input
+    [ngModel]="candidateToEdit.age"
+    min="20"
+    max="55"
+    name="age"
+    type="number"
+    class="form-control"
+  />
+
+  <label for="">Profession</label>
+  <input
+    [ngModel]="candidateToEdit.profession"
+    name="profession"
+    type="text"
+    class="form-control"
+  />
+
+  <label for="">Avatar</label>
+  <input
+    [ngModel]="candidateToEdit.avatar"
+    name="avatar"
+    type="text"
+    class="form-control"
+  />
+
+  <button [disabled]="f.invalid" class="btn btn-primary">
+    Modifier Candidat
+  </button>
+</form>

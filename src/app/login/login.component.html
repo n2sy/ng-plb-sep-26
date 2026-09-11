@@ -1,6 +1,9 @@
+@if (showError) {
+  <div class="alert alert-danger">Login et/ou Mot de passe invalide(s)</div>
+}
 <form #f="ngForm" (ngSubmit)="submitHandler(f)">
   <label for="">Login</label>
-  <input ngModel name="login" type="text" class="form-control" />
+  <input ngModel name="email" type="text" class="form-control" />
 
   <label for="">Mot de passe</label>
   <input
@@ -18,7 +21,7 @@
       Le mot de passe doit être de 5 caractères au minimium
     </div>
   }
-
+  <!-- 
   <div ngModelGroup="infos">
     <label for="">Langage préférée</label>
     <select
@@ -74,9 +77,18 @@
         <p>Le pattern est 'nidhal'</p>
       }
     </div>
+  } -->
+  @if (showLogin) {
+    <button class="btn btn-primary">Se Connecter</button>
+    <button (click)="toggleShowLogin()" class="btn btn-warning">
+      Aller à Register
+    </button>
+  } @else {
+    <button class="btn btn-info">S'inscrire</button>
+    <button (click)="toggleShowLogin()" class="btn btn-dark">
+      Aller à Login
+    </button>
   }
-
-  <button class="btn btn-primary">Se Connecter</button>
 
   <pre>
     
