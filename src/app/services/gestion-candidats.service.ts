@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Candidat } from '../models/candidat.model';
 import { TestService } from './test.service';
-import { HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpParams,
+  HttpRequest,
+} from '@angular/common/http';
 
 @Injectable()
 export class GestionCandidatsService {
@@ -22,6 +27,11 @@ export class GestionCandidatsService {
   }
 
   deleteCandidateAPI(idCand) {
+    let token = localStorage.getItem('access_token');
+    if (token) {
+      let h = new HttpHeaders().set('Authorization', `bearer ${token}`);
+      return this.http.delete(`${this.link}/${idCand}`, { headers: h });
+    }
     return this.http.delete(`${this.link}/${idCand}`);
   }
 
