@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Candidat } from '../models/candidat.model';
 import { TestService } from './test.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class GestionCandidatsService {
+  link = 'https://backendangulartrainingvercel.vercel.app/cv/candidats';
   private allCandidates: Candidat[] = [
     new Candidat(1, 'bart', 'simpson', 23, 'Ingénieur', 'bart.jpeg'),
     new Candidat(2, 'homer', 'simpson', 55, 'Chef de projet', 'homer.png'),
@@ -11,8 +13,20 @@ export class GestionCandidatsService {
     new Candidat(4, 'marge', 'simpson', 33, 'Designer'),
   ];
 
+  getAllCandidatesAPI() {
+    return this.http.get<Candidat[]>(this.link);
+  }
+
+  getCandidateByIdAPI(idCand) {
+    return this.http.get<Candidat>(`${this.link}/${idCand}`);
+  }
+
+  deleteCandidateAPI(idCand) {
+    return this.http.delete(`${this.link}/free/${idCand}`);
+  }
+
   getAllCandidates() {
-    this.testSer.addition(5, 3);
+    // this.testSer.addition(5, 3);
     return this.allCandidates;
   }
 
@@ -29,5 +43,5 @@ export class GestionCandidatsService {
     console.log('Je suis un service');
   }
 
-  constructor(private testSer: TestService) {}
+  constructor(private http: HttpClient) {}
 }

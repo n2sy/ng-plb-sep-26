@@ -25,11 +25,30 @@ export class InfosComponent {
     //Version 2
     this.activatedRoute.paramMap.subscribe({
       next: (values: ParamMap) => {
-        this.selCandidate = this.candSer.getCandidateById(values.get('id'));
-
-        if (!this.selCandidate) this.router.navigateByUrl('/404');
+        this.candSer.getCandidateByIdAPI(values.get('id')).subscribe({
+          next: (data: Candidat) => {
+            this.selCandidate = data;
+          },
+          error: (err) => {
+            this.router.navigateByUrl('/404');
+          },
+        });
       },
       error: (err) => {},
     });
+  }
+
+  deleteHandler() {
+    if (confirm('Etes vous sûr de vouloir supprimer ce candidat ?')) {
+      this.candSer.deleteCandidateAPI(this.selCandidate._id).subscribe({
+        next: (data: any) => {
+          alert(data.message);
+          this.router.navigateByUrl('/cv');
+        },
+        error: (err) => {
+          alert('Impossible de supprimer ce candidat');
+        },
+      });
+    }
   }
 }

@@ -16,10 +16,17 @@ export class ListeComponent {
   @Output() eventToCv = new EventEmitter<Candidat>();
 
   private candService = inject(GestionCandidatsService);
-  private candService2 = inject(GestionCandidatsService);
 
   ngOnInit() {
-    this.tousCandidats = this.candService.getAllCandidates();
+    this.candService.getAllCandidatesAPI().subscribe({
+      next: (data: Candidat[]) => {
+        this.tousCandidats = data;
+      },
+      error: (err) => {
+        alert('Connexion rompue... Chargement de données ficitives');
+        this.tousCandidats = this.candService.getAllCandidates();
+      },
+    });
   }
 
   showList() {
