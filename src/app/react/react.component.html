@@ -1,0 +1,13 @@
+<form [formGroup]="signUpForm" (ngSubmit)="submitHandler()">
+  <label for="">Adresse Mail</label>
+  <input type="text" class="form-control" formControlName="addresseMail" />
+
+  <label for="">Password</label>
+  <input type="text" class="form-control" formControlName="password" />
+
+  @if (signUpForm.get("password").invalid) {
+    <div class="alert alert-danger">Mot de passe obligatoire</div>
+  }
+
+  <button class="btn btn-primary">Submit</button>
+</form>

@@ -7,6 +7,7 @@ import { InfosComponent } from './infos/infos.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
+import { ReactComponent } from './react/react.component';
 
 export const myRoutes: Routes = [
   {
@@ -39,6 +40,7 @@ export const myRoutes: Routes = [
       import('./login/login.component').then((c) => c.LoginComponent),
   },
   { path: 'servers', component: ManageServersComponent },
+  { path: 'react', component: ReactComponent },
   { path: '404', component: NotFoundComponent }, // Wild route
   { path: '**', redirectTo: '404' }, // Wild route
 ];

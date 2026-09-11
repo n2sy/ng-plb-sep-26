@@ -13,35 +13,66 @@
     class="form-control"
   />
 
-  <label for="">Langage préférée</label>
-  <select [ngModel]="defaultLanguage" name="langage" id="" class="form-control">
-    @for (lang of allLanguages; track $index) {
-      <option [value]="lang">{{ lang }}</option>
-    }
-    ion</select
-  ><br />
-
-  {{ defaultLanguage }}
-
-  <br />
-
-  <textarea
-    name="commentaire"
-    [(ngModel)]="myComment"
-    rows="4"
-    cols="5"
-    class="form-control"
-  ></textarea>
-
-  <br />
-
-  {{ myComment }}
-
-  <br />
-
   @if (inpPwd.invalid && inpPwd.touched) {
     <div class="alert alert-danger">
       Le mot de passe doit être de 5 caractères au minimium
+    </div>
+  }
+
+  <div ngModelGroup="infos">
+    <label for="">Langage préférée</label>
+    <select
+      [ngModel]="defaultLanguage"
+      name="langage"
+      id=""
+      class="form-control"
+    >
+      @for (lang of allLanguages; track $index) {
+        <option [value]="lang">{{ lang }}</option>
+      }
+      ion</select
+    ><br />
+
+    {{ defaultLanguage }}
+
+    <br />
+
+    <textarea
+      name="commentaire"
+      [(ngModel)]="myComment"
+      rows="4"
+      cols="5"
+      class="form-control"
+    ></textarea>
+
+    <br />
+
+    {{ myComment }}
+
+    <br />
+  </div>
+
+  <label for="exp">Gestion d'erreurs</label>
+  <input
+    #exp="ngModel"
+    ngModel
+    name="exemple"
+    required
+    type="text"
+    class="form-control"
+    id="exp"
+  />
+  @if (exp.invalid) {
+    <div class="alert alert-danger">
+      @if (exp.errors["required"]) {
+        <p>{{ exp.errors["nameIsForbidden"].message</p>
+      }
+      @if (exp.errors["minlength"]) {
+        <p>Le nombre minimal de caractères est 6</p>
+      }
+      @if (exp.errors["pattern"]) {
+        <p>Le pattern est 'nidhal'</p>
+      }
     </div>
   }
 
