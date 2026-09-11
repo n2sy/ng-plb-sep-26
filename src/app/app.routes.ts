@@ -8,6 +8,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { ReactComponent } from './react/react.component';
+import { allowGuard } from './guards/allow.guard';
+import { blockLoginGuard } from './guards/block-login.guard';
+import { quitterLoginGuard } from './guards/quitter-login.guard';
+import { quitterFormGuard } from './guards/quitter-form.guard';
 
 export const myRoutes: Routes = [
   {
@@ -23,7 +27,12 @@ export const myRoutes: Routes = [
         loadComponent: () =>
           import('./cv/cv.component').then((c) => c.CvComponent),
       },
-      { path: 'add', component: AddComponent },
+      {
+        path: 'add',
+        component: AddComponent,
+        canDeactivate: [quitterFormGuard],
+        canActivate: [allowGuard],
+      },
       {
         path: ':id',
         children: [
@@ -38,6 +47,8 @@ export const myRoutes: Routes = [
     path: 'login',
     loadComponent: () =>
       import('./login/login.component').then((c) => c.LoginComponent),
+    canActivate: [blockLoginGuard],
+    canDeactivate: [quitterLoginGuard],
   },
   { path: 'servers', component: ManageServersComponent },
   { path: 'react', component: ReactComponent },

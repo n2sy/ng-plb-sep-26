@@ -27,11 +27,11 @@ export class GestionCandidatsService {
   }
 
   deleteCandidateAPI(idCand) {
-    let token = localStorage.getItem('access_token');
-    if (token) {
-      let h = new HttpHeaders().set('Authorization', `bearer ${token}`);
-      return this.http.delete(`${this.link}/${idCand}`, { headers: h });
-    }
+    // let token = localStorage.getItem('access_token');
+    // if (token) {
+    //   let h = new HttpHeaders().set('Authorization', `bearer ${token}`);
+    //   return this.http.delete(`${this.link}/${idCand}`, { headers: h });
+    // }
     return this.http.delete(`${this.link}/${idCand}`);
   }
 

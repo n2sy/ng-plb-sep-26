@@ -36,4 +36,8 @@ export class AccueilComponent {
   goToInfos() {
     this.router.navigate(['cv', this.idCandidat]);
   }
+
+  ngOnDestroy() {
+    console.log('DESTRUCTION');
+  }
 }
